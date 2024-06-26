@@ -2,6 +2,8 @@ package com.bookapp.controller;
 
 import com.bookapp.models.Book;
 import com.bookapp.service.BookService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,12 +13,15 @@ import java.util.List;
 @RequestMapping("book-restapi")
 public class BookController {
 
+    Logger  logger = LoggerFactory.getLogger(BookController.class);
+
     @Autowired
     BookService bookService;
 
     // http://localhost:8080/book-restapi/hello
     @GetMapping("/hello")
     public String sayHello(){
+        logger.info("Welcome to rest api");
         return "Welcome to rest api";
     }
 
